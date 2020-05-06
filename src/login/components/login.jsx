@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import { useHistory } from "react-router-dom";
 
-import './login.scss'
+import './Login.scss'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash, faExclamationCircle } from '@fortawesome/free-solid-svg-icons'
@@ -14,6 +15,8 @@ export default () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
+    let history = useHistory();
+
     let timeout;
 
     const handleLogin = () => {
@@ -23,6 +26,8 @@ export default () => {
         if (username === 'admin' && password === 'admin') {
             setInfo('alert success shown')
             setInfoLabel('Login successful!!')
+
+            history.push("/cc/oe")
         }
         else {
             setInfo('alert danger shown')
