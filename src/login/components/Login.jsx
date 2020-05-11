@@ -24,7 +24,7 @@ export default ({ msg }) => {
             setInfo('alert success')
             setInfoLabel('Login successful!!')
 
-            history.push("/cc/oe")
+            history.push("/cc")
         }
         else {
             setInfo('alert danger')
