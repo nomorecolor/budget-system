@@ -4,13 +4,13 @@ import { useHistory } from "react-router-dom";
 import './Login.scss'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEye, faEyeSlash, faExclamationCircle } from '@fortawesome/free-solid-svg-icons'
+import { faEye, faEyeSlash, faExclamationCircle, faLock, faUser } from '@fortawesome/free-solid-svg-icons'
 
-export default () => {
+export default ({ msg }) => {
     const [passIcon, setPassIcon] = useState(faEye);
     const [passType, setPassType] = useState('password');
-    const [info, setInfo] = useState('alert hidden');
-    const [infoLabel, setInfoLabel] = useState('');
+    const [info, setInfo] = useState('alert');
+    const [infoLabel, setInfoLabel] = useState(msg ? msg : 'Use your LDAP account to sign in');
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -20,25 +20,23 @@ export default () => {
     let timeout;
 
     const handleLogin = () => {
-        clearTimeout(timeout)
-        setInfo('alert hidden')
-
         if (username === 'admin' && password === 'admin') {
-            setInfo('alert success shown')
+            setInfo('alert success')
             setInfoLabel('Login successful!!')
 
             history.push("/cc/oe")
         }
         else {
-            setInfo('alert danger shown')
-            setInfoLabel('Invalid credentials. Please try again.')
+            setInfo('alert danger')
+            setInfoLabel('Incorrect username or password. Please try again.')
         }
 
-        timeout = setTimeout(() => {
-            setInfo('alert hidden')
-        }, 3000);
-
         clearFields();
+    }
+
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter')
+            handleLogin()
     }
 
     const clearFields = () => {
@@ -59,32 +57,37 @@ export default () => {
 
     return (
         <div className='login-container'>
+            <div className='title'>
+                <h2>Login</h2>
+            </div>
             <div className={info}>
-                <FontAwesomeIcon icon={faExclamationCircle} />
                 <label>{infoLabel}</label>
             </div>
             <div className='form-wrapper'>
                 <p>
-                    <label htmlFor='username'>Username</label>
-                    <input type='text'
+                    <FontAwesomeIcon icon={faUser} id='icon-placeholder' />
+                    <input placeholder='Username'
+                        type='text'
                         value={username}
-                        onChange={(e) => setUsername(e.target.value)} />
+                        onChange={(e) => setUsername(e.target.value)}
+                        onKeyPress={(e) => handleKeyPress(e)} />
                 </p>
                 <p>
-                    <label htmlFor='password'>Password</label>
-                    <input type={passType}
+                    <FontAwesomeIcon icon={faLock} id='icon-placeholder' />
+                    <input placeholder='Password'
+                        type={passType}
                         value={password}
-                        onChange={(e) => setPassword(e.target.value)} />
-                    <FontAwesomeIcon icon={passIcon} id='icon' onClick={togglePassword} />
+                        onChange={(e) => setPassword(e.target.value)}
+                        onKeyPress={(e) => handleKeyPress(e)} />
                 </p>
 
                 <div className='buttons'>
-                    <input type='submit'
-                        id='Login'
+                    <input type='button'
+                        className='primary'
                         value='Login'
                         onClick={handleLogin} />
                     <input type='button'
-                        id='Clear'
+                        className='secondary'
                         value='Clear'
                         onClick={clearFields} />
                 </div>

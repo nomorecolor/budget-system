@@ -1,8 +1,7 @@
 .navbar {
     margin: 0;
 
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid gainsboro;
 
     &:last-child {
         border-top: none;
@@ -24,27 +23,42 @@
     align-items: center;
 
     list-style: none;
-    font-weight: bold;
 
-    &.sub {
-        height: 3em;
+    li {
+        height: 100%;
     }
 
     .nav-item {
         margin: 0 1em;
+        padding: 0 0.5em;
+
+        box-sizing: border-box;
+
         cursor: pointer;
 
-        .nav-link {
-            display: inline-block;
-            padding: 0.2em 1em;
-            border-radius: 5px;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
 
-            text-decoration: none;
+        height: 100%;
+
+        transition: all 0.1s ease-in;
+
+        &:visited,
+        &:link {
             color: black;
+        }
 
-            &.active {
-                background-color: #95bcf2;
-            }
+        &.active,
+        &:hover {
+            color: #1890ff;
+            text-shadow: 0 0 0.9px #1890ff, 0 0 0.9px#1890ff, 0 0 0.9px #1890ff;
+
+            border-top: 3px solid #1890ff;
+        }
+
+        .icon {
+            margin: 0.2em;
         }
     }
 }

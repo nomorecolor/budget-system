@@ -11,6 +11,7 @@ import { Navbar } from './navbar'
 import {
   LoginPage,
   DashboardPage,
+  CostCenterPage,
   OperatingExpensePage,
   CapitalExpenditurePage,
   OtherStaffExpensePage,
@@ -23,11 +24,17 @@ function App() {
     <Router>
       <Switch>
         <Route path='/' component={LoginPage} exact />
+        <RouteWithLayout path='/cc' component={CostCenterPage} exact />
         <RouteWithLayout path='/cc/oe' component={OperatingExpensePage} exact />
         <RouteWithLayout path='/cc/ce' component={CapitalExpenditurePage} exact />
         <RouteWithLayout path='/cc/ose' component={OtherStaffExpensePage} exact />
+        <RouteWithLayout path='/rev' component={DashboardPage} exact />
         <RouteWithLayout path='/rev/det' component={DetailedPage} exact />
         <RouteWithLayout path='/rev/con' component={ConsolidatedPage} exact />
+        <RouteWithLayout path='/fse' component={DashboardPage} exact />
+        <RouteWithLayout path='/oth' component={DashboardPage} exact />
+        <RouteWithLayout path='/rep' component={DashboardPage} exact />
+        <RouteWithLayout path='/adm' component={DashboardPage} exact />
       </Switch>
     </Router >
   );

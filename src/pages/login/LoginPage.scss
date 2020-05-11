@@ -5,6 +5,8 @@
     flex-direction: column;
     align-items: center;
 
+    background-color: #066bc2;
+
     #logo {
         width: fit-content;
         height: fit-content;
@@ -12,5 +14,15 @@
         margin: 0;
 
         padding-top: 3em;
+    }
+
+    #login {
+        margin: auto;
+
+        h1 {
+            color: white;
+            text-align: center;
+            margin: 1em;
+        }
     }
 }

@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+body {
+  margin: 0;
+  font-family: "Quicksand", sans-serif;
+
+  font-size: medium;
+}
+
+button,
+input {
+  font-family: inherit;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+input[type="button"] {
+  border: none;
+  border-radius: 5px;
+  padding: 1em 4em;
+  margin: auto;
+
+  cursor: pointer;
+  transition: transform 0.1s ease-out;
+
+  &.primary {
+    color: white;
+    background-color: #2185d0;
+  }
+
+  &.secondary {
+    color: black;
+    background-color: #e0e1e2;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}

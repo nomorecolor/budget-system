@@ -1,0 +1,10 @@
+.cost-center-wrapper {
+    margin: 0;
+    padding: 1em 2em;
+    height: calc(100vh - 5em - 2px);
+    background-color: #f2f3f5;
+    box-sizing: border-box;
+
+    display: grid;
+    grid-template-rows: 20% 80%;
+}
