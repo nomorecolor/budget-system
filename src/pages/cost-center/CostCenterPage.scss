@@ -2,9 +2,36 @@
     margin: 0;
     padding: 1em 2em;
     height: calc(100vh - 5em - 2px);
-    background-color: #f2f3f5;
     box-sizing: border-box;
 
+    display: flex;
+    flex-direction: column;
+}
+
+.filter {
+    padding-bottom: 1em;
+
     display: grid;
-    grid-template-rows: 20% 80%;
+    grid-gap: 1em;
+    grid-template-columns: repeat(3, auto);
+
+    align-items: center;
+
+    width: fit-content;
+
+    div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+
+        label {
+            padding-right: 1em;
+        }
+    }
+}
+
+.data {
+    overflow: scroll;
+    overflow-x: auto;
+    width: 50%;
 }

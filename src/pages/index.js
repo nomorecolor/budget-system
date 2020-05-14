@@ -6,5 +6,6 @@ export { default as OperatingExpensePage } from './cost-center/OperatingExpenseP
 export { default as CapitalExpenditurePage } from './cost-center/CapitalExpenditurePage'
 export { default as OtherStaffExpensePage } from './cost-center/OtherStaffExpensePage'
 
+export { default as RevenuePage } from './revenue/RevenuePage'
 export { default as DetailedPage } from './revenue/DetailedPage'
 export { default as ConsolidatedPage } from './revenue/ConsolidatedPage'
